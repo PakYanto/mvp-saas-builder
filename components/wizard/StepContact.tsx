@@ -40,7 +40,7 @@ export function StepContact({ initialData, onUpdate }: StepContactProps) {
           Informasi Kontak
         </h2>
         <p className="text-gray-600">
-          Buat pelanggan dapat menghubungi Anda dengan mudah
+          Biar pelanggan bisa kontak kamu dengan mudah
         </p>
       </div>
 
@@ -74,7 +74,7 @@ export function StepContact({ initialData, onUpdate }: StepContactProps) {
             </p>
           )}
           <p className="mt-1 text-sm text-gray-500">
-            Pelanggan dapat menghubungi Anda langsung via WhatsApp
+            Pelanggan bisa kontak kamu langsung via WhatsApp
           </p>
         </div>
 
@@ -139,7 +139,7 @@ export function StepContact({ initialData, onUpdate }: StepContactProps) {
             </p>
           )}
           <p className="mt-1 text-sm text-gray-500">
-            Alamat lengkap toko atau tempat usaha Anda
+            Alamat lengkap toko atau tempat usaha kamu
           </p>
         </div>
 
@@ -167,8 +167,8 @@ export function StepContact({ initialData, onUpdate }: StepContactProps) {
               <div className="mt-2 text-sm text-blue-700">
                 <ul className="list-disc list-inside space-y-1">
                   <li>Pastikan nomor WhatsApp aktif dan bisa dihubungi</li>
-                  <li>Instagram membantu pelanggan melihat katalog produk Anda</li>
-                  <li>Alamat lengkap memudahkan pelanggan menemukan toko fisik Anda</li>
+                  <li>Instagram bantu pelanggan lihat katalog produk kamu</li>
+                  <li>Alamat lengkap memudahkan pelanggan cari toko fisik kamu</li>
                 </ul>
               </div>
             </div>

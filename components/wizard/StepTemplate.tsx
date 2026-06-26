@@ -85,7 +85,7 @@ export function StepTemplate({
           Pilih Template
         </h2>
         <p className="text-gray-600">
-          Pilih desain yang sesuai dengan bisnis Anda. Anda dapat mengubahnya nanti.
+          Pilih desain yang sesuai dengan bisnis kamu. Bisa diubah nanti.
         </p>
       </div>
 

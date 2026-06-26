@@ -147,10 +147,10 @@ export function StepProducts({ initialData, onUpdate }: StepProductsProps) {
     <div className="space-y-8">
       <div>
         <h2 className="text-2xl font-bold text-gray-900 mb-2">
-          Produk & Layanan
+          Produk atau Layanan
         </h2>
         <p className="text-gray-600">
-          Tambahkan produk atau layanan yang Anda tawarkan (maksimal 5)
+          Tambahkan produk atau layanan yang kamu tawarkan (maksimal 5)
         </p>
       </div>
 
@@ -351,7 +351,7 @@ export function StepProducts({ initialData, onUpdate }: StepProductsProps) {
         </div>
       ) : (
         <div className="text-center py-12 bg-gray-50 rounded-lg border border-gray-200">
-          <p className="text-gray-500">Belum ada produk. Tambahkan produk pertama Anda di atas.</p>
+          <p className="text-gray-500">Belum ada produk. Tambahkan produk pertama kamu di atas.</p>
         </div>
       )}
     </div>

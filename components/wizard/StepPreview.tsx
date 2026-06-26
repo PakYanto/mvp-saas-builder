@@ -181,7 +181,7 @@ export function StepPreview({ wizardState }: StepPreviewProps) {
           Preview & Simpan
         </h2>
         <p className="text-gray-600">
-          Lihat tampilan akhir website Anda sebelum disimpan
+          Lihat tampilan akhir website kamu sebelum disimpan
         </p>
       </div>
 
@@ -336,9 +336,9 @@ export function StepPreview({ wizardState }: StepPreviewProps) {
             </h3>
             <div className="mt-2 text-sm text-blue-700">
               <ul className="list-disc list-inside space-y-1">
-                <li>Website Anda akan langsung dapat diakses</li>
-                <li>Link unik akan dibuat untuk berbagi ke pelanggan</li>
-                <li>Anda dapat mengedit website kapan saja di dashboard</li>
+                <li>Website kamu langsung bisa diakses</li>
+                <li>Link unik bakal dibuat buat share ke pelanggan</li>
+                <li>Kamu bisa edit website kapan aja di dashboard</li>
               </ul>
             </div>
           </div>

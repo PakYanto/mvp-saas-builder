@@ -31,10 +31,10 @@ export default function Home() {
         <div className="mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Kenapa Pilih Kami?
+              Kenapa Harus Pakai Ini?
             </h2>
             <p className="mt-4 text-lg text-gray-600">
-              Platform tercepat untuk membuat preview website toko online
+              Platform tercepat buat bikin preview website toko online
             </p>
           </div>
           
@@ -60,7 +60,7 @@ export default function Home() {
                 Cepat & Mudah
               </h3>
               <p className="text-gray-600">
-                Buat preview website toko online dalam 5 menit, tanpa perlu coding atau keahlian teknis.
+                Buat preview website toko online dalam 5 menit, tanpa perlu coding atau skill teknis.
               </p>
             </div>
 
@@ -90,7 +90,7 @@ export default function Home() {
                 Preview Real-Time
               </h3>
               <p className="text-gray-600">
-                Lihat hasil website langsung saat Anda mengisi form. Preview interaktif dan responsif.
+                Lihat hasil website langsung saat kamu mengisi form. Preview interaktif dan responsif.
               </p>
             </div>
 
@@ -115,7 +115,7 @@ export default function Home() {
                 Link Shareable
               </h3>
               <p className="text-gray-600">
-                Kirim link preview ke calon klien melalui WhatsApp, email, atau sosial media dengan mudah.
+                Kirim link preview ke calon klien lewat WhatsApp, email, atau medsos dengan gampang.
               </p>
             </div>
           </div>
@@ -127,10 +127,10 @@ export default function Home() {
         <div className="mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Cara Kerja
+              Gimana Caranya?
             </h2>
             <p className="mt-4 text-lg text-gray-600">
-              Tiga langkah mudah untuk membuat preview website toko online
+              Tiga langkah gampang buat bikin preview website toko online
             </p>
           </div>
 
@@ -144,7 +144,7 @@ export default function Home() {
                 Isi Form
               </h3>
               <p className="text-gray-600">
-                Masukkan informasi toko: nama, logo, produk, dan kontak. Form simpel dan mudah dipahami.
+                Masukkan info toko: nama, logo, produk, dan kontak. Form gampang banget.
               </p>
             </div>
 
@@ -157,7 +157,7 @@ export default function Home() {
                 Preview
               </h3>
               <p className="text-gray-600">
-                Lihat hasil website secara langsung. Sesuaikan dan edit sampai sempurna sesuai keinginan.
+                Lihat hasil website secara langsung. Edit dan sesuaikan sampai perfect sesuai keinginan.
               </p>
             </div>
 
@@ -170,7 +170,7 @@ export default function Home() {
                 Share Link
               </h3>
               <p className="text-gray-600">
-                Dapatkan link unik dan bagikan ke calon klien. Mereka bisa lihat preview kapan saja, di mana saja.
+                Dapetin link unik dan bagikan ke calon klien. Mereka bisa lihat preview kapan aja, di mana aja.
               </p>
             </div>
           </div>
@@ -181,10 +181,10 @@ export default function Home() {
       <section className="py-20 px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-indigo-600">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Siap Membuat Preview Website Toko Online?
+            Siap Bikin Preview Website Toko Kamu?
           </h2>
           <p className="mt-6 text-lg leading-8 text-blue-100">
-            Mulai sekarang dan dapatkan preview profesional dalam hitungan menit. Gratis, tanpa ribet.
+            Mulai sekarang dan dapetin preview profesional dalam hitungan menit. Gratis, tanpa ribet.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link

@@ -40,7 +40,7 @@ export default function BuilderPage() {
       <header className="bg-white border-b px-6 py-4">
         <div className="flex items-center justify-between">
           <h1 className="text-xl font-bold text-gray-900">
-            Buat Website Toko Anda
+            Buat Website Toko Kamu
           </h1>
           <a
             href="/"

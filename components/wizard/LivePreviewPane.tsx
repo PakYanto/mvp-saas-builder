@@ -108,7 +108,7 @@ export function LivePreviewPane({ wizardState }: LivePreviewPaneProps) {
       {/* Preview Footer Info */}
       <div className="bg-white border-t px-4 py-2">
         <p className="text-xs text-gray-500 text-center">
-          Preview akan diperbarui secara otomatis saat Anda mengubah data
+          Preview bakal diupdate otomatis saat kamu ubah data
         </p>
       </div>
     </div>

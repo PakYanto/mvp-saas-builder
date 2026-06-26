@@ -97,10 +97,10 @@ export function StepBrand({ initialData, onUpdate }: StepBrandProps) {
     <div className="space-y-8">
       <div>
         <h2 className="text-2xl font-bold text-gray-900 mb-2">
-          Informasi Toko Anda
+          Info Toko Kamu
         </h2>
         <p className="text-gray-600">
-          Mari mulai dengan informasi dasar tentang toko Anda
+          Yuk mulai dengan info dasar tentang toko kamu
         </p>
       </div>
 
@@ -149,7 +149,7 @@ export function StepBrand({ initialData, onUpdate }: StepBrandProps) {
             placeholder="Contoh: Kopi berkualitas dengan harga terjangkau"
           />
           <p className="mt-1 text-sm text-gray-500">
-            Slogan singkat yang menggambarkan bisnis Anda
+            Slogan singkat yang menggambarkan bisnis kamu
           </p>
         </div>
 
@@ -235,7 +235,7 @@ export function StepBrand({ initialData, onUpdate }: StepBrandProps) {
               className="h-10 w-20 rounded border border-gray-300 cursor-pointer"
             />
             <span className="text-sm text-gray-600">
-              Pilih warna utama untuk toko Anda
+              Pilih warna utama untuk toko kamu
             </span>
           </div>
         </div>
