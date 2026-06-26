@@ -123,7 +123,7 @@ export function StepBrand({ initialData, onUpdate }: StepBrandProps) {
                 message: 'Nama toko minimal 3 karakter',
               },
             })}
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md bg-white text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="Contoh: Toko Kopi Nikmat"
           />
           {errors.storeName && (
@@ -145,7 +145,7 @@ export function StepBrand({ initialData, onUpdate }: StepBrandProps) {
             id="tagline"
             type="text"
             {...register('tagline')}
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md bg-white text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             placeholder="Contoh: Kopi berkualitas dengan harga terjangkau"
           />
           <p className="mt-1 text-sm text-gray-500">
@@ -164,7 +164,7 @@ export function StepBrand({ initialData, onUpdate }: StepBrandProps) {
           <select
             id="category"
             {...register('category', { required: true })}
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md bg-white text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           >
             <option value="umum">Umum</option>
             <option value="minimal">Minimal</option>
