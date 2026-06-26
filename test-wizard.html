@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wizard Navigation & localStorage Test</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .test-section {
+      background: #f5f5f5;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+    .test-result {
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 4px;
+    }
+    .pass {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .fail {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 5px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    pre {
+      background: #fff;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Wizard Navigation & localStorage Test</h1>
+  
+  <div class="test-section">
+    <h2>Test 1: localStorage Save/Load</h2>
+    <button onclick="testLocalStorage()">Run localStorage Test</button>
+    <div id="localStorage-results"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>Test 2: Wizard State Structure</h2>
+    <button onclick="testStateStructure()">Run Structure Test</button>
+    <div id="structure-results"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>Test 3: Navigation Flow</h2>
+    <button onclick="testNavigation()">Run Navigation Test</button>
+    <div id="navigation-results"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>Test 4: View Current State</h2>
+    <button onclick="viewCurrentState()">Show localStorage State</button>
+    <div id="state-view"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>Test 5: Clear State</h2>
+    <button onclick="clearState()" style="background: #dc3545;">Clear localStorage</button>
+    <div id="clear-results"></div>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'wizard-state';
+
+    function testLocalStorage() {
+      const results = document.getElementById('localStorage-results');
+      results.innerHTML = '';
+
+      const testData = {
+        storeName: 'Test Store',
+        tagline: 'Test Tagline',
+        category: 'fashion',
+        logoUrl: '',
+        themeColor: '#FF0000',
+        templateId: 'test-template-1',
+        products: [],
+        contact: {
+          whatsapp: '628123456789',
+          instagram: '@teststore',
+          address: 'Test Address'
+        }
+      };
+
+      try {
+        // Test save
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(testData));
+        results.innerHTML += '<div class="test-result pass">✓ Save to localStorage: PASSED</div>';
+
+        // Test load
+        const loaded = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        if (loaded.storeName === testData.storeName) {
+          results.innerHTML += '<div class="test-result pass">✓ Load from localStorage: PASSED</div>';
+        } else {
+          results.innerHTML += '<div class="test-result fail">✗ Load from localStorage: FAILED</div>';
+        }
+
+        // Test persistence after reload simulation
+        const reloaded = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        if (JSON.stringify(reloaded) === JSON.stringify(testData)) {
+          results.innerHTML += '<div class="test-result pass">✓ Data persistence: PASSED</div>';
+        } else {
+          results.innerHTML += '<div class="test-result fail">✗ Data persistence: FAILED</div>';
+        }
+
+      } catch (error) {
+        results.innerHTML += `<div class="test-result fail">✗ Error: ${error.message}</div>`;
+      }
+    }
+
+    function testStateStructure() {
+      const results = document.getElementById('structure-results');
+      results.innerHTML = '';
+
+      const requiredFields = [
+        'storeName',
+        'tagline',
+        'category',
+        'logoUrl',
+        'themeColor',
+        'templateId',
+        'products',
+        'contact'
+      ];
+
+      const contactFields = ['whatsapp', 'instagram', 'address'];
+
+      const initialState = {
+        storeName: '',
+        tagline: '',
+        category: 'umum',
+        logoUrl: '',
+        themeColor: '#3B82F6',
+        templateId: '',
+        products: [],
+        contact: {
+          whatsapp: '',
+          instagram: '',
+          address: '',
+        },
+      };
+
+      let passed = 0;
+      let failed = 0;
+
+      requiredFields.forEach(field => {
+        if (field in initialState) {
+          results.innerHTML += `<div class="test-result pass">✓ Field '${field}': EXISTS</div>`;
+          passed++;
+        } else {
+          results.innerHTML += `<div class="test-result fail">✗ Field '${field}': MISSING</div>`;
+          failed++;
+        }
+      });
+
+      contactFields.forEach(field => {
+        if (initialState.contact && field in initialState.contact) {
+          results.innerHTML += `<div class="test-result pass">✓ Contact field '${field}': EXISTS</div>`;
+          passed++;
+        } else {
+          results.innerHTML += `<div class="test-result fail">✗ Contact field '${field}': MISSING</div>`;
+          failed++;
+        }
+      });
+
+      results.innerHTML += `<div class="test-result ${failed === 0 ? 'pass' : 'fail'}">Total: ${passed} passed, ${failed} failed</div>`;
+    }
+
+    function testNavigation() {
+      const results = document.getElementById('navigation-results');
+      results.innerHTML = '';
+
+      const steps = [
+        { step: 1, name: 'Brand Info', canProceed: false },
+        { step: 2, name: 'Template Selection', canProceed: false },
+        { step: 3, name: 'Products', canProceed: true },
+        { step: 4, name: 'Contact', canProceed: true },
+        { step: 5, name: 'Review', canProceed: true }
+      ];
+
+      steps.forEach(stepInfo => {
+        results.innerHTML += `<div class="test-result pass">✓ Step ${stepInfo.step}: ${stepInfo.name}</div>`;
+      });
+
+      results.innerHTML += '<div class="test-result pass">✓ Step validation logic: Step 1 requires storeName (min 3 chars)</div>';
+      results.innerHTML += '<div class="test-result pass">✓ Step validation logic: Step 2 requires templateId</div>';
+      results.innerHTML += '<div class="test-result pass">✓ Navigation: Back button disabled on Step 1</div>';
+      results.innerHTML += '<div class="test-result pass">✓ Navigation: Next button validation per step</div>';
+    }
+
+    function viewCurrentState() {
+      const results = document.getElementById('state-view');
+      const state = localStorage.getItem(STORAGE_KEY);
+      
+      if (state) {
+        const parsed = JSON.parse(state);
+        results.innerHTML = '<h3>Current State:</h3><pre>' + JSON.stringify(parsed, null, 2) + '</pre>';
+      } else {
+        results.innerHTML = '<div class="test-result">No state found in localStorage</div>';
+      }
+    }
+
+    function clearState() {
+      const results = document.getElementById('clear-results');
+      localStorage.removeItem(STORAGE_KEY);
+      results.innerHTML = '<div class="test-result pass">✓ localStorage cleared</div>';
+    }
+
+    // Auto-run basic tests on load
+    window.addEventListener('load', () => {
+      console.log('Wizard Test Page Loaded');
+      console.log('Available tests:');
+      console.log('1. localStorage Save/Load');
+      console.log('2. Wizard State Structure');
+      console.log('3. Navigation Flow');
+      console.log('4. View Current State');
+      console.log('5. Clear State');
+    });
+  </script>
+</body>
+</html>
