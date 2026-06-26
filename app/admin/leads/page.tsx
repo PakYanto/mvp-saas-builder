@@ -13,11 +13,25 @@ async function getAllLeads() {
     const data = await res.json();
     const projects = data.projects || [];
     
+    interface Lead {
+      id: string;
+      name: string | null;
+      phone: string | null;
+      email: string | null;
+      message: string | null;
+      status: string;
+      createdAt: string;
+    }
+    
+    interface LeadWithProject extends Lead {
+      projectName: string;
+    }
+    
     // Extract all leads from all projects
-    const allLeads: any[] = [];
+    const allLeads: LeadWithProject[] = [];
     for (const project of projects) {
       if (project.leads && Array.isArray(project.leads)) {
-        project.leads.forEach((lead: any) => {
+        project.leads.forEach((lead: Lead) => {
           allLeads.push({
             ...lead,
             projectName: project.storeName,

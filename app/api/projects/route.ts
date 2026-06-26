@@ -77,10 +77,10 @@ export async function POST(request: NextRequest) {
     });
     
     return NextResponse.json(project, { status: 201 });
-  } catch (error: any) {
-    if (error.name === 'ZodError') {
+  } catch (error) {
+    if (error instanceof Error && error.name === 'ZodError') {
       return NextResponse.json(
-        { error: 'Validation failed', details: error.errors },
+        { error: 'Validation failed', details: (error as any).errors },
         { status: 400 }
       );
     }
@@ -108,7 +108,7 @@ export async function GET(request: NextRequest) {
     });
     
     // Build where clause
-    const where: any = {};
+    const where: Record<string, string> = {};
     if (queryData.userId) where.userId = queryData.userId;
     if (queryData.status) where.status = queryData.status;
     if (queryData.category) where.category = queryData.category;
@@ -140,10 +140,10 @@ export async function GET(request: NextRequest) {
         hasMore: queryData.offset + queryData.limit < total,
       },
     });
-  } catch (error: any) {
-    if (error.name === 'ZodError') {
+  } catch (error) {
+    if (error instanceof Error && error.name === 'ZodError') {
       return NextResponse.json(
-        { error: 'Invalid query parameters', details: error.errors },
+        { error: 'Invalid query parameters', details: (error as any).errors },
         { status: 400 }
       );
     }

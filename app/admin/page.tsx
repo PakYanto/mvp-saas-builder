@@ -14,7 +14,7 @@ async function getStats() {
     const projects = data.projects || [];
     
     const totalProjects = projects.length;
-    const totalLeads = projects.reduce((sum: number, project: any) => {
+    const totalLeads = projects.reduce((sum: number, project: { _count?: { leads?: number } }) => {
       return sum + (project._count?.leads || 0);
     }, 0);
     
