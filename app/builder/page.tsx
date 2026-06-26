@@ -42,12 +42,12 @@ export default function BuilderPage() {
           <h1 className="text-xl font-bold text-gray-900">
             Buat Website Toko Anda
           </h1>
-          <button
-            type="button"
-            className="text-sm text-gray-600 hover:text-gray-900"
+          <a
+            href="/"
+            className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
           >
             Keluar
-          </button>
+          </a>
         </div>
       </header>
 
