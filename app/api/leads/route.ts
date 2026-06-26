@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
       });
     } else {
       // Update user info if provided and different
-      const updateData: any = {};
+      const updateData: Partial<{ name: string; phone: string; email: string }> = {};
       if (validatedData.name && validatedData.name !== user.name) {
         updateData.name = validatedData.name;
       }
@@ -80,10 +80,10 @@ export async function POST(request: NextRequest) {
     });
     
     return NextResponse.json(lead, { status: 201 });
-  } catch (error: any) {
-    if (error.name === 'ZodError') {
+  } catch (error) {
+    if (error instanceof Error && error.name === 'ZodError') {
       return NextResponse.json(
-        { error: 'Validation failed', details: error.errors },
+        { error: 'Validation failed', details: (error as any).errors },
         { status: 400 }
       );
     }

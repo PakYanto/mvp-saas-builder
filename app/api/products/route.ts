@@ -35,10 +35,10 @@ export async function POST(request: NextRequest) {
     });
     
     return NextResponse.json(product, { status: 201 });
-  } catch (error: any) {
-    if (error.name === 'ZodError') {
+  } catch (error) {
+    if (error instanceof Error && error.name === 'ZodError') {
       return NextResponse.json(
-        { error: 'Validation failed', details: error.errors },
+        { error: 'Validation failed', details: (error as any).errors },
         { status: 400 }
       );
     }

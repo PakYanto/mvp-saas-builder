@@ -85,7 +85,16 @@ export async function PATCH(
     }
     
     // Update project
-    const updateData: any = { ...validatedData };
+    const updateData: Partial<{
+      storeName?: string;
+      tagline?: string;
+      logoUrl?: string;
+      category?: string;
+      themeColor?: string;
+      status?: string;
+      storeConfig?: string;
+      slug?: string;
+    }> = { ...validatedData };
     if (newSlug) {
       updateData.slug = newSlug;
     }
@@ -102,10 +111,10 @@ export async function PATCH(
     });
     
     return NextResponse.json(updatedProject);
-  } catch (error: any) {
-    if (error.name === 'ZodError') {
+  } catch (error) {
+    if (error instanceof Error && error.name === 'ZodError') {
       return NextResponse.json(
-        { error: 'Validation failed', details: error.errors },
+        { error: 'Validation failed', details: (error as any).errors },
         { status: 400 }
       );
     }

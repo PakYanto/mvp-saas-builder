@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
     const category = searchParams.get('category');
     
     // Build where clause
-    const where: any = {};
+    const where: { category?: string } = {};
     if (category) {
       where.category = category;
     }
