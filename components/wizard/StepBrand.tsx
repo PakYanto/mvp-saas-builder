@@ -41,8 +41,10 @@ export function StepBrand({ initialData, onUpdate }: StepBrandProps) {
   // Watch form changes and update parent
   const formValues = watch();
   useEffect(() => {
-    onUpdate(formValues);
-  }, [formValues, onUpdate]);
+    const { storeName, tagline, category, themeColor } = formValues;
+    onUpdate({ storeName, tagline, category, themeColor });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formValues.storeName, formValues.tagline, formValues.category, formValues.themeColor, onUpdate]);
 
   const handleLogoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
